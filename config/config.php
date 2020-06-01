@@ -1,10 +1,12 @@
 <?php
 
-define('RASPI_VERSION', '2.4.1');
+define('RASPI_VERSION', '2.4');
 define('RASPI_CONFIG', '/etc/raspap');
 define('RASPI_CONFIG_NETWORKING', RASPI_CONFIG.'/networking');
 define('RASPI_ADMIN_DETAILS', RASPI_CONFIG.'/raspap.auth');
-define('RASPI_WIFI_CLIENT_INTERFACE', 'wlan0');
+define('RASPI_WIFI_HOST_INTERFACE', 'wlan0');
+define('RASPI_WIFI_CLIENT_INTERFACE', 'wlan1');
+define('RASPI_USB_CLIENT_INTERFACE', 'usb0');
 define('RASPI_CACHE_PATH', sys_get_temp_dir() . '/raspap');
 
 // Constants for configuration file paths.
@@ -29,13 +31,13 @@ define('RASPI_5GHZ_ISO_ALPHA2', array('US'));
 
 // Optional services, set to true to enable.
 define('RASPI_WIFICLIENT_ENABLED', true);
-define('RASPI_HOTSPOT_ENABLED', true);
-define('RASPI_NETWORK_ENABLED', true);
-define('RASPI_DHCP_ENABLED', true);
+define('RASPI_HOTSPOT_ENABLED', false);
+define('RASPI_NETWORK_ENABLED', false);
+define('RASPI_DHCP_ENABLED', false);
 define('RASPI_ADBLOCK_ENABLED', false);
 define('RASPI_OPENVPN_ENABLED', false);
 define('RASPI_TORPROXY_ENABLED', false);
-define('RASPI_CONFAUTH_ENABLED', true);
+define('RASPI_CONFAUTH_ENABLED', false);
 define('RASPI_CHANGETHEME_ENABLED', true);
 define('RASPI_VNSTAT_ENABLED', true);
 define('RASPI_SYSTEM_ENABLED', true);
