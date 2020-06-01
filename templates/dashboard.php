@@ -17,7 +17,7 @@ if ($arrHostapdConf['BridgedEnable'] == 1) {
   exec('cat '.RASPI_DNSMASQ_LEASES.'| grep -E $(iw dev '.$host_iface.' station dump | grep -oE '.$MACPattern.' | paste -sd "|")', $clients);
 }
 $ifaceStatus = $wlan0up ? "up" : "down";
-$ifaceUsbStatus = $usbup ? "up" : "down";
+$ifaceUsbStatus = $usbUp ? "up" : "down";
 ?>
 <div class="row">
   <div class="col-lg-12">
