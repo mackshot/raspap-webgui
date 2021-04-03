@@ -51,12 +51,7 @@ function RPiVersion()
     if (array_key_exists($rev, $revisions)) {
         return $revisions[$rev];
     } else {
-        exec('cat /proc/device-tree/model', $model);
-        if (isset($model[0])) {
-            return $model[0];
-        } else {
-            return 'Unknown Device';
-        }
+        return 'Unknown Pi';
     }
 }
 

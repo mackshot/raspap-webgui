@@ -94,7 +94,6 @@ function DisplayWPAConfig()
 
     nearbyWifiStations($networks);
     connectedWifiStations($networks);
-    sortNetworksByRSSI($networks);
 
     echo renderTemplate("configure_client", compact("status"));
 }

@@ -83,13 +83,42 @@ $ifaceUsbStatus = $usbUp ? "up" : "down";
           </div><!-- /.col-md-6 -->
 <?php if (strlen($usbclient_iface) > 0) { ?>
           <div class="col-sm-6 align-items-stretch mb-3">
-            <div class="card h-100">
+            <div class="card h-50">
               <div class="card-body wireless">
                 <h4><?php echo _("Usb Client"); ?></h4>
                 <div class="row justify-content-md-center">
                 <div class="col-md">
                   <div class="info-item"><?php echo _("IP Address"); ?></div><div><?php echo htmlspecialchars($connectedUsbIp, ENT_QUOTES); ?></div>
               </div>
+              <div class="col-md mt-2 d-flex justify-content-center">
+                <script>var linkQ = <?php echo json_encode($strLinkQuality); ?>;</script>
+                <div class="chart-container">
+                </div>
+                </div><!--row-->
+              </div>
+             </div><!-- /.card-body -->
+            </div><!-- /.card -->
+          </div>
+          <div class="col-sm-6 align-items-stretch mb-3">
+            <div class="card h-500">
+              <div class="card-body wireless">
+		<?php
+		$filename = "/var/www/html/e3372.txt";
+		$raw = file_get_contents($filename);
+		preg_match("/FullName\s(.+)/", $raw, $m); $operator = $m[1];
+		preg_match("/rssi\s(.+)/", $raw, $m); $rssi = $m[1];
+		preg_match("/workmode\s(.+)/", $raw, $m); $workmode = $m[1];
+		preg_match("/WanIPAddress\s(.+)/", $raw, $m); $ip = $m[1];
+		$mtime = filemtime($filename);
+		?>
+                <h4>Huawei E3372 (<?php print date("Y-m-d H:i:s", $mtime) ?>)</h4>
+                <div class="row justify-content-md-center">
+                <div class="col-md">
+                  <div class="info-item">Operator</div><div><?php echo htmlspecialchars($operator, ENT_QUOTES); ?></div>
+                  <div class="info-item">RSSI</div><div><?php echo htmlspecialchars($rssi, ENT_QUOTES); ?></div>
+                  <div class="info-item">WorkMode</div><div><?php echo htmlspecialchars($workmode, ENT_QUOTES); ?></div>
+                  <div class="info-item">IP Address</div><div><?php echo htmlspecialchars($ip, ENT_QUOTES); ?></div>
+                </div>
               <div class="col-md mt-2 d-flex justify-content-center">
                 <script>var linkQ = <?php echo json_encode($strLinkQuality); ?>;</script>
                 <div class="chart-container">
